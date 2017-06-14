@@ -10,7 +10,7 @@ then
     else
 	echo holberton file is empty
     fi
-    if [ ! -f "holbertonschool" ]
+    if [ -f "holbertonschool" ]
     then
 	echo holbertonschool is a regular file
     fi
