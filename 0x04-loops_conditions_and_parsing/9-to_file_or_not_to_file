@@ -12,8 +12,8 @@ then
     fi
     if [ ! -f "holbertonschool" ]
     then
-	echo holbertonschool file is not empty
+	echo holbertonschool is a regular file
     fi
-else [ ! -f "holbertonschool" ]
+else
     echo holbertonschool file does not exist
 fi
