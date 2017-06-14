@@ -12,9 +12,9 @@ do
 	    echo Buzz
 	elif ((counter % 3 == 0))
 	then
-	    echo Fuzz
+	    echo Fizz
 	else
-	    echo $counter
+	    echo "$counter"
 	fi
 	((counter++))
 done
