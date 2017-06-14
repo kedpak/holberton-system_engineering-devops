@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# pring clock
+
+minutes=1
+hour=0
+while [ $hour -le 12 ]
+do
+    minutes=1
+    echo Hour $hour
+    while [ $minutes -le 59 ]
+    do
+	echo $minutes
+	((minutes++))
+    done
+    ((hour++))
+done
