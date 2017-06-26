@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# prints string indefinitly, special case for sigterm
+while true;
+do
+    trap 'echo "I am invincible!!!"' SIGTERM
+    echo To infinity and beyond
+    sleep 2
+done
