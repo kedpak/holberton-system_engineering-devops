@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# script to connect script without password
+sudo nano ~/.ssh/holberton
+PasswordAuthentication no
+sudo service ssh restart
