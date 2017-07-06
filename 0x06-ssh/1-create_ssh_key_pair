@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-# creat ssh key pair
+# create ssh key pair
 ssh-keygen -t rsa -b 4096 -f holberton -N toonami
