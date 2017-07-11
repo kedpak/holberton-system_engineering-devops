@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # script fixes Recv failure
-/etc/init.d/apache2 start
+sudo /etc/init.d/apache2 start
