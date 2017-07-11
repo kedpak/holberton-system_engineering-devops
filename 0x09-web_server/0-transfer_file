@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# transfer bash script from client to server
+
+if [ "$#" -ne 3 ]
+then
+	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+else
+
+	scp -PS "$1" "$2" "$3" "$4"
+fi
