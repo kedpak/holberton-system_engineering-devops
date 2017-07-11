@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # Installs nginx on virtual machine
 sudo apt-get -y install nginx
+sudo service nginx start
 echo "Holberton School" | tee /usr/share/nginx/html
