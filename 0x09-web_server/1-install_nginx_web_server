@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Installs nginx on virtual machine
+sudo apt-get -y install nginx
+nano /usr/share/nginx/html
+echo "Holberton School" >> "/usr/share/nginx/html"
