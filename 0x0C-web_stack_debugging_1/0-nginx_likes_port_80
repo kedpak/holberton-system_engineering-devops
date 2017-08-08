@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # have server listen on port 80
+sudo apt-get update
 sudo apt-get purge nginx nginx-common
-apt-get install nginx
+sudo apt-get install nginx
 service nginx start
-sed -i 's/listen 8080 default_server/listen 80 default_server/g' /etc/nginx/sites-enabled/default
-sed -i 's/8080 default_server ipv6only=on/80 default_server ipv6only=on/g' /etc/nginx/sites-enabled/default
