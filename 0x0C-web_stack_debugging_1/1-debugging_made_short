@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# have server listen on port 80
+sudo apt-get purge nginx nginx-common
+apt-get install nginx
+service nginx start
