@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 # have server listen on port 80
-sudo apt-get update
-sudo apt-get purge nginx nginx-common
-sudo apt-get install nginx
+cp -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx restart
