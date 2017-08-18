@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # configure web-02 identical to web-01
+# shellcheck disable=SC2016
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo service nginx start
