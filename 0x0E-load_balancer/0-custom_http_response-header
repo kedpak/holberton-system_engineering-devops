@@ -1,0 +1,11 @@
+#!/bin/bash
+# configure web-02 identical to web-01
+# custom header X-Served-By
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
+echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
+sudo sed -i '26 i \        rewrite ^/redirect_me httpsL//google.com permanent;' /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
+sudo sed -i '27 i \  	   add_header X-Served-By $HOSTNAME;' /etc/nginx/sites-available/default
+sudo service nginx restart
