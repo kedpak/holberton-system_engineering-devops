@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # Install HAProxy load balancer to serve between servers web-01 web-02
-# Installed onto lb-01 server
-# ENABLED=1 sets init script to start haproxy
 sudo add-apt-repository -y ppa:vbernat/haproxy-1.5
 sudo apt-get update
 sudo apt-get dist-upgrade
