@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# display information of subdomains
+subdomain="$2"
+spec_sub1="www"
+spec_sub2="lb-01"
+spec_sub3="web-01"
+spec_sub4="web-02"
+
+if [ -z "$2" ]; then
+    for sub in $spec_sub1 $spec_sub2 $spec_sub3 $spec_sub4
+    do
+	printf "The subdomain ${sub} is a "
+	dig "${sub}.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {printf "%s ", $4}'
+	printf "record and points to "
+	dig "${sub}.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {printf "%s\n", $5}'
+    done
+else
+    printf "The subdomain %s is a " "$2"
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {printf "%s ", $4}'
+    printf "record and points to "
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {printf "%s\n", $5}'
+fi
