@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2086
 # display information of subdomains
 spec_sub1="www"
 spec_sub2="lb-01"
 spec_sub3="web-01"
 spec_sub4="web-02"
-
 if [ -z "$2" ]; then
     for sub in $spec_sub1 $spec_sub2 $spec_sub3 $spec_sub4
     do
