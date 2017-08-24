@@ -5,6 +5,13 @@ spec_sub1="www"
 spec_sub2="lb-01"
 spec_sub3="web-01"
 spec_sub4="web-02"
+
+print_line() {
+    
+    printf "record and points to "
+}
+
+
 if [ -z "$2" ]; then
     for sub in $spec_sub1 $spec_sub2 $spec_sub3 $spec_sub4
     do
@@ -16,6 +23,6 @@ if [ -z "$2" ]; then
 else
     printf "The subdomain %s is a " "$2"
     dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {printf "%s ", $4}'
-    printf "record and points to "
+    print_line
     dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {printf "%s\n", $5}'
 fi
