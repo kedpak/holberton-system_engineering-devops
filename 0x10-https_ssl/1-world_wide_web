@@ -7,8 +7,9 @@ spec_sub3="web-01"
 spec_sub4="web-02"
 
 print_line() {
-    
+
     printf "record and points to "
+    
 }
 
 
@@ -17,8 +18,10 @@ if [ -z "$2" ]; then
     do
 	printf "The subdomain %s is a " "${sub}"
 	dig "${sub}.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {printf "%s ", $4}'
-	printf "record and points to "
-	dig "${sub}.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {printf "%s\n", $5}'
+	print_line
+	dig "${sub}.$1" | grep -A1 'ANSWER SECTION:' | awk 'FNR == 2 {printf "%s", $5}'
+	printf "\n"
+
     done
 else
     printf "The subdomain %s is a " "$2"
