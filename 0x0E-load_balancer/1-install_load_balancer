@@ -7,7 +7,7 @@ sudo apt-get install -y haproxy
 
 sudo sed -i "8 i\ENABLED=1" /etc/default/haproxy
 
-sudo sed -i "25  a\     \nlisten appname 0.0.0.0:80\n\tmode http\n\tstats enable\n\tbalance roundrobin\n\toption httpclose\n\toption forwardfor\n\tserver 126-web-01 66.70.184.29:80 check\n\tserver 126-web-02 34.228.245.175:80 check\n" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a \ \n\nlisten appname *:80\n\tmode http\n\tstats enable\n\tbalance roundrobin\n\toption http-keep-alive\n\toption forwardfor\n\tserver 126-web-01 66.70.184.29:80 check\n\tserver 126-web-02 34.228.245.175:80 check\n" /etc/haproxy/haproxy.cfg
 
 sudo service haproxy start
 sudo service haproxy restart
