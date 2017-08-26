@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# set nginx container user root to nginx
 sudo sed -i "4 i\user nginx;" /etc/nginx/nginx.conf
 sudo sed -i "23 i\         client_body_temp_path /tmp/client_body;\n\tfastcgi_temp_path /tmp/fastcgi_temp;\n\tproxy_temp_path /tmp/proxy_temp;\n\tscgi_t\
 emp_path /tmp/scgi_temp;\n\tuwsgi_temp_path /tmp/uwsgi_temp;" /etc/nginx/sites-available/default
