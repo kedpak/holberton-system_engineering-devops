@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# set nginx container user root to nginx
+sudo sed -i "4 i\user nginx;" /etc/nginx/nginx.conf
+sudo apt-get install psmisc
+killall apache2
+sudo sed -i "s/80/8080/g" /etc/nginx/sites-available/default
+sudo service nginx restart
