@@ -1,0 +1,6 @@
+# proxy pass to port 8001 to name airbnb_onepage
+location /airbnb-onepage {
+	          rewrite ^/airbnb-onepage(.*) /$1 break;
+		           include proxy_params;
+                 proxy_pass http://127.0.0.1:8001;
+		 }
