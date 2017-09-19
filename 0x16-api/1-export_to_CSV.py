@@ -2,9 +2,10 @@
 """
 Python script to export data in the CSV format.
 """
+import csv
 import requests
 import sys
-import csv
+
 
 if __name__ == '__main__':
     r_users = requests.get('https://jsonplaceholder.typicode.com/users/{}'
@@ -29,7 +30,8 @@ if __name__ == '__main__':
                 csv_list.append(string)
 
         with open('{}.csv'.format(sys.argv[1]), 'w') as out:
-            writer = csv.writer(out, quotechar='"', quoting=csv.QUOTE_ALL)
+            writer = csv.writer(out, delimter=',',
+                                quotechar='"', quoting=csv.QUOTE_ALL)
             for i in csv_list:
                 i = i.split("-")
                 writer.writerow(i)
