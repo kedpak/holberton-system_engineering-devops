@@ -16,20 +16,21 @@ if __name__ == '__main__':
     user_name = r_users['username']
 
     csv_list = []
-    for i in r_todos:
-        string = "-"
-        if i['userId'] is int(sys.argv[1]):
-            seq = [
-                str(i['userId']),
-                user_name,
-                str(i['completed']),
-                i['title']
-            ]
-            string = string.join(seq)
-            csv_list.append(string)
+    if len(sys.argv) > 1:
+        for i in r_todos:
+            string = "-"
+            if i['userId'] is int(sys.argv[1]):
+                seq = [
+                    str(i['userId']),
+                    user_name,
+                    str(i['completed']),
+                    i['title']
+                ]
+                string = string.join(seq)
+                csv_list.append(string)
 
-    with open('{}.csv'.format(sys.argv[1]), 'w') as out:
-        writer = csv.writer(out, quotechar='"', quoting=csv.QUOTE_ALL)
-        for i in csv_list:
-            i = i.split("-")
-            writer.writerow(i)
+        with open('{}.csv'.format(sys.argv[1]), 'w') as out:
+            writer = csv.writer(out, quotechar='"', quoting=csv.QUOTE_ALL)
+            for i in csv_list:
+                i = i.split("-")
+                writer.writerow(i)
