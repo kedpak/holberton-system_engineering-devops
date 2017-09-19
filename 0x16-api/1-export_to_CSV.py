@@ -4,7 +4,6 @@ Python script to export data in the CSV format.
 """
 import requests
 import sys
-import json
 import csv
 
 if __name__ == '__main__':
