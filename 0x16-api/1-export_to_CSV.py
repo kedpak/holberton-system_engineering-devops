@@ -29,7 +29,7 @@ if __name__ == '__main__':
             csv_list.append(string)
 
     with open('{}.csv'.format(sys.argv[1]), 'w') as out:
-        writer = csv.writer(out)
+        writer = csv.writer(out, quotechar='"', quoting=csv.QUOTE_ALL)
         for i in csv_list:
             i = i.split("-")
             writer.writerow(i)
