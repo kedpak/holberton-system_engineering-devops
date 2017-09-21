@@ -6,7 +6,6 @@ listed for a given subreddit.
 
 import json
 import requests
-import sys
 
 headers = {
     "User-Agent": "kpak"
@@ -22,6 +21,8 @@ def top_ten(subreddit):
     content = r.json()
     i = 0
     for data in content["data"]["children"]:
+        if data["data"] is None:
+            return
         if data["data"]["title"] is None:
             return
         print(data["data"]["title"])
