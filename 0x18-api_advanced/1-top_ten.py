@@ -27,7 +27,6 @@ def top_ten(subreddit):
         print ('None')
         return
     for data in content["data"]["children"]:
-        print(data)
         if data is None:
             print ('None')
             return
