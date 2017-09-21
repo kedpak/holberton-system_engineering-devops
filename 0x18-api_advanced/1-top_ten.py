@@ -17,6 +17,7 @@ def top_ten(subreddit):
     r = requests.get(url, headers=headers)
     if not r.ok:
         print (None)
+        return
     content = r.json()
     i = 0
     for data in content["data"]["children"]:
@@ -24,3 +25,5 @@ def top_ten(subreddit):
         i += 1
         if i == 10:
             break
+    if i == 0:
+        print (None)
