@@ -19,9 +19,9 @@ def top_ten(subreddit):
         print (None)
         return
     content = r.json()
-    if content is None:
+    if content["data"] is None:
         print (None)
-        return
+        return 
     i = 0
     for data in content["data"]["children"]:
         print(data["data"]["title"])
