@@ -19,11 +19,11 @@ def top_ten(subreddit):
         print (None)
         return
     content = r.json()
-    if content["data"] is None:
-        print (None)
-        return 
+    print(json.dumps(content, indent=4))
     i = 0
     for data in content["data"]["children"]:
+        if (data["data"]["title"]):
+            return
         print(data["data"]["title"])
         i += 1
         if i == 10:
