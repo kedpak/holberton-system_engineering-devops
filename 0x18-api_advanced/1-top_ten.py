@@ -16,7 +16,7 @@ def top_ten(subreddit):
     url = "http://www.reddit.com/r/{}/hot.json".format(subreddit)
     r = requests.get(url, headers=headers)
     if not r.ok:
-        return 0
+        print (None)
     content = r.json()
     i = 0
     for data in content["data"]["children"]:
