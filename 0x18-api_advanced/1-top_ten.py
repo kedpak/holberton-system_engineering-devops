@@ -20,7 +20,7 @@ def top_ten(subreddit):
     content = r.json()
     i = 0
     for data in content["data"]["children"]:
-        print(json.dumps(data["data"]["title"], indent=4))
+        print(data["data"]["title"])
         i += 1
         if i == 10:
             break
