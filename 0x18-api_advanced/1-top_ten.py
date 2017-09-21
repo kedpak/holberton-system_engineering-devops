@@ -22,7 +22,7 @@ def top_ten(subreddit):
     print(json.dumps(content, indent=4))
     i = 0
     for data in content["data"]["children"]:
-        if (data["data"]["title"]):
+        if data["data"]["title"] is None:
             return
         print(data["data"]["title"])
         i += 1
