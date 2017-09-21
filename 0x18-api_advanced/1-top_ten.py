@@ -26,11 +26,15 @@ def top_ten(subreddit):
     if content["data"] is None:
         print ('None')
         return
+    if content["data"]["children"] is None:
+        print ('None')
+        return
     for data in content["data"]["children"]:
         if data is None:
             print ('None')
             return
         if data["data"]["title"] is None:
+            print('None')
             return
         print(data["data"]["title"])
         i += 1
