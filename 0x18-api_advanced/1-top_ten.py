@@ -12,23 +12,27 @@ headers = {
 
 
 def top_ten(subreddit):
+    """
+    return top ten hot lists
+    """
     url = "http://www.reddit.com/r/{}/hot.json".format(subreddit)
     r = requests.get(url, headers=headers)
     if not r.ok:
         print ("None")
         return
     content = r.json()
-    i = 0
     if content is None:
         print ("None")
         return
     if content["data"] is None:
         print ("None")
         return
-    if content["data"]["children"] is None:
+    content = content.get('data', {}).get('children', {})
+    if content is None:
         print ("None")
         return
-    for data in content["data"]["children"]:
+    i = 0
+    for data in content:
         if data is None:
             print ("None")
             return
@@ -41,6 +45,3 @@ def top_ten(subreddit):
             break
     if i == 0:
         print ("None")
-
-if __name__ == "__main__":
-    top_ten(subreddit)
