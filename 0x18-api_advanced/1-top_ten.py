@@ -1,44 +1,40 @@
 #!/usr/bin/python3
-"""1. Top Ten"""
+"""
+Print the titles of the first 10 hot posts
+listed for a given subreddit.
+"""
 import requests
+
+headers = {
+    "User-Agent": "kpak"
+}
 
 
 def top_ten(subreddit):
-    """return titles of the first 10 hot posts listed for a given subreddit"""
-    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-
-    r = requests.get(url, headers={'User-agent': 'Hunter'})
+    url = "http://www.reddit.com/r/{}/hot.json".format(subreddit)
+    r = requests.get(url, headers=headers)
     if not r.ok:
-        # invalid subreddit
-        print("None")
+        print ("None")
         return
-
-    r_json = r.json()
-    if r_json is None:
-        print("None")
+    content = r.json()
+    i = 0
+    if content is None:
+        print ("None")
         return
-
-    posts = r_json.get('data', {}).get('children', {})
-    if posts is None:
-        print("None")
+    if content["data"] is None:
+        print ("None")
         return
-
-    count = 0
-    for post in posts:
-        title = (post.get('data', {}).get('title'))
-        if title is None:
+    hot_post = content["data"]["children"]
+    if hot_post is None:
+        print ("None")
+        return
+    for data in hot_post:
+        if data["data"]["title"] is None:
             return
-
-        # print title of hot post
-        print("{}".format(title))
-
-        if count == 9:
+        print(data["data"]["title"])
+        i += 1
+        if i == 10:
             break
-        count += 1
-
-    if count == 0:
-        print("None")
+    if i == 0:
+        print ("None")
         return
-
-if __name__ == "__main__":
-    top_ten(subreddit)
