@@ -45,3 +45,4 @@ def top_ten(subreddit):
             break
     if i == 0:
         print ("None")
+        return
