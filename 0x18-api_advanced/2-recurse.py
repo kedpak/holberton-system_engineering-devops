@@ -20,14 +20,13 @@ def recurse(subreddit, hot_list=[], after=None):
             subreddit, after)
     r = requests.get(url, headers=headers)
     if not r.ok:
-        print ("None")
-        return
+        return None
     content = r.json()
     hot_post = content["data"]["children"]
     if hot_post is None:
-        return (None)
+        return None
     for i in range(len(content["data"]["children"])):
         hot_list.append(content["data"]["children"][i]["data"]["title"])
     if content["data"]["after"] is not None:
         recurse(subreddit, hot_list, content["data"]["after"])
-    return (hot_list)
+    return hot_list
