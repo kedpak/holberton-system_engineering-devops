@@ -24,25 +24,19 @@ def top_ten(subreddit):
     if content is None:
         print ("None")
         return
-    if content["data"] is None:
-        print ("None")
-        return
     content = content.get('data', {}).get('children', {})
     if content is None:
         print ("None")
         return
     i = 0
     for data in content:
-        if data is None:
-            print ("None")
-            return
         title = (data.get('data', {}).get('title'))
         if title is None:
             return
         print(title)
-        i += 1
-        if i == 10:
+        if i == 9:
             break
+        i += 1
     if i == 0:
         print ("None")
         return
