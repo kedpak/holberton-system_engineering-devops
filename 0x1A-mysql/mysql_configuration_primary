@@ -44,7 +44,7 @@ skip-external-locking
 #
 # Instead of skip-networking the default is now to listen only on
 # localhost which is more compatible and is not less secure.
-bind-address	     = 127.0.0.1
+# bind-address	     = 127.0.0.1
 #
 # * Fine Tuning
 #
@@ -107,7 +107,7 @@ binlog_do_db		  = holberton
 # ssl-cert=/etc/mysql/server-cert.pem
 # ssl-key=/etc/mysql/server-key.pem
 
-#bind-address		= 66.70.184.29
+
 
 [mysqldump]
 quick
