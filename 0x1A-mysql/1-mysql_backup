@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # create back up of mysql database and compress into tar file
 DATE=$(date +%d-%m-%Y)
 PASSWORD=$1
