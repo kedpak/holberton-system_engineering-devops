@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # create back up of mysql database and compress into tar file
 DATE=$(date +%d-%m-%Y)
 PASSWORD=$1
-mysqldump -uroot -p"$PASSWORD" --all-databases > backup.sql
+mysqldump -uroot -p"$1" --all-databases > backup.sql
 tar -czvf "$DATE.tar.gz" backup.sql
